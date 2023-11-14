@@ -1334,8 +1334,16 @@ TD .checkmark, TD .radiomark {
 	top: 84px;
 }
 
+#pallist.simplified .lstI.selected {
+	top: 42px;
+}
+
 #pallist .lstI.sticky {
 	top: 42px;
+}
+
+#pallist.simplified .lstI.sticky {
+	top: 0px;
 }
 
 /* list item content */
