@@ -2924,6 +2924,7 @@ function simplifyUI() {
 
 	// Put effects below palett list
 	gId("Colors").innerHTML += gId("Effects").innerHTML;
+	gId("modeLabel").classList.remove("hd");
 	// Put segments before palette list if there are multiple segments
 	if (lastinfo.leds.seglc.length > 1) {
 		gId("Colors").insertBefore(gId("segcont"), gId("pall"));
