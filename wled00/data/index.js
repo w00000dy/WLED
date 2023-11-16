@@ -2918,6 +2918,7 @@ function mergeDeep(target, ...sources)
 	return mergeDeep(target, ...sources);
 }
 
+// Transforms the default UI into the simple UI
 function simplifyUI() {
 	// Disable PC Mode as it does not exist in simple UI
 	if (pcMode) togglePcMode(true);
