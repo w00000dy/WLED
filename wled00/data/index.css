@@ -1365,7 +1365,7 @@ TD .checkmark, TD .radiomark {
 	padding: 24px;
 	border-radius: 10px;
 	background-color: var(--c-5);
-	overflow: none;
+	overflow: scroll;
 	box-shadow: 4px 4px 10px 4px var(--c-1);
 }
 
@@ -1373,24 +1373,8 @@ TD .checkmark, TD .radiomark {
 	top: -9999999999px;
 }
 
-#pallist.simplified {
-	overflow: scroll;
-	height: 500px;
-	/* Fix shadow */
-	margin: 0px -16px;
-	padding: 0px 16px 0px 16px;
-}
-
-#pallist.simplified .lstI.selected {
-	top: 42px;
-}
-
 #pallist .lstI.sticky {
 	top: 42px;
-}
-
-#pallist.simplified .lstI.sticky {
-	top: 0px;
 }
 
 /* list item content */
