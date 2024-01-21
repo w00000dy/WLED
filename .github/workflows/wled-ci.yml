@@ -58,7 +58,7 @@ jobs:
       with:
         name: firmware-${{ matrix.environment }}
         path: build_output/firmware/*.bin.gz
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v2
       if: startsWith(github.ref, 'refs/tags/')
       with:
         name: firmware-release
