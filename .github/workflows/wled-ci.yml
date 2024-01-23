@@ -70,4 +70,4 @@ jobs:
       with:
         draft: True
         files: |
-          *.bin
+          ./**.bin
