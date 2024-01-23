@@ -71,5 +71,6 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         draft: True
+        generate_release_notes: True
         files: |
           *.bin
