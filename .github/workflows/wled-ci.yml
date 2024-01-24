@@ -77,3 +77,4 @@ jobs:
         draft: True
         files: |
           *.bin
+          *.bin.gz
