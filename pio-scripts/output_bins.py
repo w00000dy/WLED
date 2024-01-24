@@ -40,8 +40,6 @@ def bin_rename_copy(source, target, env):
     map_file = "{}map{}{}.map".format(OUTPUT_DIR, os.path.sep, variant)
     bin_file = "{}firmware{}{}.bin".format(OUTPUT_DIR, os.path.sep, variant)
 
-    create_release(bin_file)
-
     # check if new target files exist and remove if necessary
     for f in [map_file, bin_file]:
         if os.path.isfile(f):
@@ -49,6 +47,8 @@ def bin_rename_copy(source, target, env):
 
     # copy firmware.bin to firmware/<variant>.bin
     shutil.copy(str(target[0]), bin_file)
+
+    create_release(bin_file)
 
     # copy firmware.map to map/<variant>.map
     if os.path.isfile("firmware.map"):
