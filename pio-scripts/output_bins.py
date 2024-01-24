@@ -22,6 +22,16 @@ def _create_dirs(dirs=["firmware", "map"]):
         if not os.path.isdir("{}{}".format(OUTPUT_DIR, d)):
             os.mkdir("{}{}".format(OUTPUT_DIR, d))
 
+def create_release(source):
+    release_name = _get_cpp_define_value(env, "WLED_RELEASE_NAME")
+    if release_name:
+        _create_dirs(["release"])
+        version = _get_cpp_define_value(env, "WLED_VERSION")
+        # get file extension of source file (.bin or .bin.gz)
+        ext = source.split(".", 1)[1]
+        release_file = "{}release{}WLED_{}_{}.{}".format(OUTPUT_DIR, os.path.sep, version, release_name, ext)
+        shutil.copy(source, release_file)
+
 def bin_rename_copy(source, target, env):
     _create_dirs()
     variant = env["PIOENV"]
@@ -30,13 +40,7 @@ def bin_rename_copy(source, target, env):
     map_file = "{}map{}{}.map".format(OUTPUT_DIR, os.path.sep, variant)
     bin_file = "{}firmware{}{}.bin".format(OUTPUT_DIR, os.path.sep, variant)
 
-    release_name = _get_cpp_define_value(env, "WLED_RELEASE_NAME")
-
-    if release_name:
-        _create_dirs(["release"])
-        version = _get_cpp_define_value(env, "WLED_VERSION")
-        release_file = "{}release{}WLED_{}_{}.bin".format(OUTPUT_DIR, os.path.sep, version, release_name)
-        shutil.copy(str(target[0]), release_file)
+    create_release(bin_file)
 
     # check if new target files exist and remove if necessary
     for f in [map_file, bin_file]:
@@ -65,5 +69,7 @@ def bin_gzip(source, target, env):
     with open(bin_file,"rb") as fp:
         with gzip.open(gzip_file, "wb", compresslevel = 9) as f:
             shutil.copyfileobj(fp, f)
+
+    create_release(gzip_file)
 
 env.AddPostAction("$BUILD_DIR/${PROGNAME}.bin", [bin_rename_copy, bin_gzip])
