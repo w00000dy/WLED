@@ -1,5 +1,92 @@
 ## WLED changelog
 
+#### Build 2309120 till build 2401270
+-   WLED version 0.15.0-a0
+-   BREAKING: Effect: updated Palette effect to support 2D (#3683 by @TripleWhy)
+-   "SuperSync" from WLED MM (by @MoonModules)
+-   Effect: DNA Spiral Effect Speed Fix (#3723 by @Derek4aty1)
+-   Fix for #3693
+-   Orange flash fix (#3196) for transitions
+-   Add own background image upload (#3596 by @WoodyLetsCode)
+-   WLED time overrides (`WLED_NTP_ENABLED`, `WLED_TIMEZONE`, `WLED_UTC_OFFSET`, `WLED_LAT` and `WLED_LON`)
+-   Better sorting and naming of static palettes (by @WoodyLetsCode)
+-   ANIMartRIX usermod and effects (#3673 by @netmindz)
+-   Use canvas instead of CSS gradient for liveview (#3621 by @zanhecht)
+-   Fix for #3672
+-   ColoOrderMap W channel swap (color order overrides now have W swap)
+-   En-/disable LED maps when receiving realtime data (#3554 by @ezcGman)
+-   Added PWM frequency selection to UI (Settings)
+-   Automatically build UI before compiling (#3598, #3666 by @WoodyLetsCode)
+-   Internal: Added *suspend* API to `strip` (`WS2812FX class`)
+-   Possible fix for #3589 & partial fix for #3605
+-   MPU6050 upgrade (#3654 by @willmmiles)
+-   UI internals (#3656 by @WoodyLetsCode)
+-   ColorPicker fix (#3658 by @WoodyLetsCode)
+-   Global JSON buffer guarding (#3648 by @willmmiles, resolves #3641, #3312, #3367, #3637, #3646, #3447)
+-   Effect: Fireworks 1D (fix for matrix trailing strip)
+-   BREAKING: Reduced number of segments (12) on ESP8266 due to less available RAM
+-   Increased available effect data buffer (increases more if board has PSRAM)
+-   Custom palette editor mobile UI enhancement (by @imeszaros)
+-   Per port Auto Brightness Limiter (ABL)
+-   Use PSRAM for JSON buffer (double size, larger ledmaps, up to 2k)
+-   Reduced heap fragmentation by allocating ledmap array only once and not deallocating effect buffer
+-   HTTP retries on failed UI load
+-   UI Search: scroll to top (#3587 by @WoodyLetsCode)
+-   Return to inline iro.js and rangetouch.js (#3597 by @WoodyLetsCode)
+-   Better caching (#3591 by @WoodyLetsCode)
+-   Do not send 404 for missing `skin.css` (#3590 by @WoodyLetsCode)
+-   Simplified UI rework (#3511 by @WoodyLetsCode)
+-   Domoticz device ID for PIR and Temperature usermods
+-   Bugfix for UCS8904 `hasWhite()`
+-   Better search in UI (#3540 by @WoodyLetsCode)
+-   Seeding FastLED PRNG (#3552 by @TripleWhy)
+-   WIZ Smart Button support (#3547 by @micw)
+-   New button type (button switch, fix for #3537)
+-   Pixel Magic Tool update (#3483 by @ajotanc)
+-   Effect: 2D Matrix fix for gaps
+-   Bugfix #3526, #3533, #3561
+-   Spookier Halloween Eyes (#3501)
+-   Compile time options for Multi Relay usermod (#3498)
+-   Effect: Fix for Dissolve (#3502)
+-   Better reverse proxy support (nested paths)
+-   Implement global JSON API boolean toggle (i.e. instead of "var":true or "var":false -> "var":"t").
+-   Sort presets by ID
+-   Fix for #3641, #3312, #3367, #3637, #3646, #3447, #3632, #3496, #2922, #3593, #3514, #3522, #3578 (partial), #3606 (@WoodyLetsCode)
+-   Improved random bg image and added random bg image options (@WoodyLetsCode, #3481)
+-   Audio palettes (Audioreactive usermod, credit @netmindz)
+-   Better UI tooltips (@ajotnac, #3464)
+-   Better effect filters (filter dropdown)
+-   UDP sync fix (for #3487)
+-   Power button override (solves #3431)
+-   Additional HTTP request throttling (ESP8266)
+-   Additional UI/UX improvements
+-   Segment class optimisations (internal)
+-   ESP-NOW sync
+-   ESP-NOW Wiz remote JSON overrides (similar to IR JSON) & bugfixes
+-   Gamma correction for custom palettes (#3399).
+-   Restore presets from browser local storage
+-   Optional effect blending
+-   Restructured UDP Sync (internal)
+    -   Remove sync receive
+    -   Sync clarification
+-   Disallow 2D effects on non-2D segments
+-   Return of 2 audio simulations
+-   Bugfix in sync #3344 (internal)
+    -   remove excessive segments
+    -   ignore inactive segments if not syncing bounds
+    -   send UDP/WS on segment change
+    -   pop_back() when removing last segment
+
+#### Build 2311160
+-   Version bump: 0.14.1-b1
+-   Bugfixes (#3526, #3502, #3496, #3484, #3487, #3445, #3466, #3296, #3382, #3312)
+-   New feature: Sort presets by ID
+-   New usermod: LDR sensor (#3490 by @JeffWDH)
+-   Effect: Twinklefox & Tinklecat metadata fix
+-   Effect: separate #HH and #MM for Scrolling Text (#3480)
+-   SSDR usermod enhancements (#3368)
+-   PWM fan usermod enhancements (#3414)
+
 #### Build 2310010, build 2310130
 -   Release of WLED version 0.14.0 "Hoshi"
 -   Bugfixes for #3400, #3403, #3405
